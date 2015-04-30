@@ -27,6 +27,9 @@ static void displayArgs(poptContext con,
 	/*@globals fileSystem@*/
 	/*@modifies fileSystem@*/
 {
+    if (foo) {}
+    if (arg) {}
+    if (data) {}
     if (key->shortName == '?')
 	poptPrintHelp(con, stdout, 0);
     else
@@ -92,6 +95,7 @@ getArgDescrip(const struct poptOption * opt,
 		/*@=paramuse@*/
 	/*@*/
 {
+    if (translation_domain) {}
     if (!(opt->argInfo & POPT_ARG_MASK)) return NULL;
 
     if (opt == (poptHelpOptions + 1) || opt == (poptHelpOptions + 2))
@@ -130,6 +134,7 @@ singleOptionDefaultValue(int lineLength,
 		/*@=paramuse@*/
 	/*@*/
 {
+    if (translation_domain) {}
     const char * defstr = D_(translation_domain, "default");
     char * le = malloc(4*lineLength + 1);
     char * l = le;
@@ -502,6 +507,7 @@ static int showHelpIntro(poptContext con, FILE * fp)
 void poptPrintHelp(poptContext con, FILE * fp, /*@unused@*/ int flags)
 {
     int leftColWidth;
+    if (flags) {}
 
     (void) showHelpIntro(con, fp);
     if (con->otherHelp)
@@ -709,6 +715,7 @@ static int showShortOptions(const struct poptOption * opt, FILE * fp,
 
 void poptPrintUsage(poptContext con, FILE * fp, /*@unused@*/ int flags)
 {
+    if (flags) {}
     poptDone done = memset(alloca(sizeof(*done)), 0, sizeof(*done));
     int cursor;
 

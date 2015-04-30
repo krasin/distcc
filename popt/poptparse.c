@@ -142,6 +142,7 @@ int poptConfigFileToString(FILE *fp, char ** argstrp, /*@unused@*/ int flags)
 
     *argstrp = NULL;
 
+    if (flags) {}
     /*   |   this_is   =   our_line
      *	     p             q      x
      */
